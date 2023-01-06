@@ -312,7 +312,7 @@ if (
                                 name="data[regular_price]" id="regular_price" placeholder="Giá bán"
                                 value="<?= (!empty($flash->has('regular_price'))) ? $flash->get('regular_price') : @$item['regular_price'] ?>">
                             <div class="input-group-append">
-                                <div class="input-group-text"><strong>$</strong></div>
+                                <div class="input-group-text"><strong>VNĐ</strong></div>
                             </div>
                         </div>
                     </div>

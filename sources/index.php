@@ -2,26 +2,34 @@
 	if(!defined('SOURCES')) die("Error");
 
     //need
+    $slider = $cache->get("select name$lang, photo, link from #_photo where type = ? and find_in_set('hienthi',status) order by numb,id desc", array('slide'), 'result', 7200);
 
     $tieuchi = $cache->get("select name$lang, desc$lang, id, photo, slugvi, slugen from #_news where type = ? and find_in_set('hienthi',status) order by numb,id desc", array('tieu-chi'), 'result', 7200);
     
-    $slogan = $cache->get("select name$lang from #_static where type = ? limit 0,1", array('slogan'), 'fetch', 7200);
-    
-    $slider = $cache->get("select name$lang, photo, link from #_photo where type = ? and find_in_set('hienthi',status) order by numb,id desc", array('slide'), 'result', 7200);
-        
     $about = $cache->get("select name$lang,desc$lang,content$lang,date_created, photo from #_static where type = ? and find_in_set('hienthi',status) order by id desc", array('gioi-thieu'), 'result', 7200);
-        
-    $productnb = $cache->get("select name$lang,photo,desc$lang,slugvi,slugen,regular_price, id from #_product where type = ? and find_in_set('noibat',status) and find_in_set('hienthi',status)", array('san-pham'), 'result', 7200);
     
-    $productlist = $cache->get("select name$lang, slugvi, slugen,photo, id from #_product_list where type = ? and find_in_set('hienthi',status) order by numb,id desc", array('san-pham'), 'result', 7200);
+    $bestseller = $cache->get("select name$lang,desc$lang from #_static where type = ? limit 0,1", array('bestseller'), 'fetch', 7200);
 
-    $productlistnb = $cache->get("select name$lang, slugvi, slugen,photo, id from #_product_list where type = ? and find_in_set('noibat',status) and find_in_set('hienthi',status) order by numb,id desc", array('san-pham'), 'result', 7200);
+    $productnb = $cache->get("select name$lang,photo,desc$lang,slugvi,slugen,regular_price, id from #_product where type = ? and find_in_set('noibat',status) and find_in_set('hienthi',status)", array('menu'), 'result', 7200);
     
-    $banner = $cache->get("select photo from #_photo where type = ? and act = ? limit 0,1", array('banner', 'photo_static'), 'fetch', 7200);    
+    $productlist = $cache->get("select name$lang, slugvi, slugen,photo, id from #_product_list where type = ? and find_in_set('hienthi',status) order by numb,id desc", array('menu'), 'result', 7200);
     
+    $productlistnb = $cache->get("select name$lang, slugvi, slugen,photo, id from #_product_list where type = ? and find_in_set('noibat',status) and find_in_set('hienthi',status) order by numb,id desc", array('menu'), 'result', 7200);
+    
+    $productbc = $cache->get("select name$lang,photo,desc$lang,slugvi,slugen,regular_price, id from #_product where type = ? and find_in_set('banchay',status) and find_in_set('hienthi',status)", array('menu'), 'result', 7200);
+
+    $hinhanh = $cache->get("select name$lang, photo, link from #_photo where type = ? and find_in_set('hienthi',status) order by numb,id desc", array('hinhanh'), 'result', 7200);
+    
+    $feedback = $cache->get("select name$lang, desc$lang, content$lang, id, photo from #_news where type = ? and find_in_set('hienthi',status) order by numb,id desc", array('feedback'), 'result', 7200);
+
+    $videonb = $cache->get("select id from #_photo where type = ? and find_in_set('noibat',status) and find_in_set('hienthi',status)", array('video'), 'result', 7200);
+
+    $hinhanhlienhe = $cache->get("select name$lang, photo, link from #_photo where type = ? and find_in_set('hienthi',status) order by numb,id desc", array('hinhanh-lienhe'), 'result', 7200);
+
+    $thungo = $cache->get("select name$lang,desc$lang from #_static where type = ? limit 0,1", array('thu-ngo'), 'fetch', 7200);
+
     $newsnb = $cache->get("select name$lang, slugvi, slugen, desc$lang, date_created, id, photo from #_news where type = ? and find_in_set('noibat',status) and find_in_set('hienthi',status) order by numb,id desc", array('tin-tuc'), 'result', 7200);
     
-    $support = $cache->get("select name$lang,desc$lang,content$lang,date_created, photo from #_static where type = ? and find_in_set('hienthi',status) order by id desc", array('ho-tro-truc-tuyen'), 'result', 7200);
     
     //need
     /* SEO */

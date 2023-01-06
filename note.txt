@@ -15,3 +15,24 @@ Liên hệ đặt bàn: bỏ mục địa chỉ thay ngày vào - hình ảnh li
 static. thư ngõ
 
 footer tự nhập
+
+news
+	tieuchi 88 76
+	tintuc 293 250
+	feedback
+	chinhsach
+photo
+	logo
+	slide 608
+	hinh anh
+	video
+	hinh anh lien he
+	social
+product
+	menu 2 cap
+static
+	gioithieu 473 450
+	lienhe
+	bestseller name desc img
+	thu ngo -> name desc
+	footer

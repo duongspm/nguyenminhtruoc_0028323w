@@ -112,9 +112,6 @@ NN_FRAMEWORK.Slickvideo = function(){
         autoplay: true,
         autoplaySpeed: 2000,
         asNavFor: '.slider-for',
-        vertical: true,
-        verticalSwiping: true,
-
         loop: true
     });
 };

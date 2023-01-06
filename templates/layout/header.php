@@ -1,4 +1,7 @@
 <div class="header">
+
+</div>
+<!-- <div class="header">
     <div class="header__top">
         <div class="wrapper">
             <div class="header__topp">
@@ -43,9 +46,7 @@
     <div class="header__bottom">
         <div class="wrapper">
             <div class="header__logo">
-                <a href="" title="<?=trangchu?>">
-                    <?=$func->getImage(['sizes' => '130x102x1', 'upload' => UPLOAD_PHOTO_L, 'image' => $logo['photo'], 'alt' => $setting['name'.$lang]])?>
-                </a>
+                
             </div>
             <div class="header__right">
                 <div class="header__info-item">
@@ -75,4 +76,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->

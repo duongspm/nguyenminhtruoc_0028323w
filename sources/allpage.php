@@ -5,13 +5,9 @@ if (!defined('SOURCES')) die("Error");
 // need
 $socialfooter = $cache->get("select name$lang, photo, link from #_photo where type = ? and find_in_set('hienthi',status) order by numb,id desc", array('social-footer'), 'result', 7200);
 
-$socialheader = $cache->get("select photo, link from #_photo where type = ? and find_in_set('hienthi',status) order by numb,id desc", array('social-header'), 'result', 7200);
-
 $productnb = $cache->get("select name$lang, slugvi, slugen, id from #_product where type = ? and find_in_set('noibat',status) and find_in_set('hienthi',status)", array('san-pham'), 'result', 7200);
 
 $favicon = $cache->get("select photo from #_photo where type = ? and act = ? and find_in_set('hienthi',status) limit 0,1", array('favicon', 'photo_static'), 'fetch', 7200);
-
-$slogan = $cache->get("select name$lang from #_static where type = ? limit 0,1", array('slogan'), 'fetch', 7200);
 
 $policy = $cache->get("select name$lang, slugvi, slugen, id from #_news where type = ? and find_in_set('hienthi',status) order by numb,id desc", array('chinh-sach'), 'result', 7200);
 
@@ -19,15 +15,9 @@ $footer = $cache->get("select name$lang, content$lang from #_static where type =
 
 $logo = $cache->get("select id, photo, options from #_photo where type = ? and act = ? limit 0,1", array('logo', 'photo_static'), 'fetch', 7200);
 
-$bannerheader = $cache->get("select photo from #_photo where type = ? and act = ? limit 0,1", array('banner-header', 'photo_static'), 'fetch', 7200);
-
 $productlist = $cache->get("select name$lang, slugvi, slugen, id from #_product_list where type = ? and find_in_set('hienthi',status) order by numb,id desc", array('san-pham'), 'result', 7200);
 
-$congtrinh = $cache->get("select name$lang, slugvi, slugen, desc$lang, date_created, id, photo from #_news where type = ? and find_in_set('noibat',status) and find_in_set('hienthi',status) order by numb,id desc", array('cong-trinh'), 'result', 7200);
-
-$cskh = $cache->get("select name$lang, slugvi, slugen, desc$lang, date_created, id, photo from #_news where type = ? and find_in_set('noibat',status) and find_in_set('hienthi',status) order by numb,id desc", array('cham-soc-khach-hang'), 'result', 7200);
-
-$tknh = $cache->get("select name$lang, desc$lang from #_static where type = ? limit 0,1", array('tai-khoang-ngan-hang'), 'fetch', 7200);
+$hinhanh = $cache->get("select name$lang, photo, link from #_photo where type = ? and find_in_set('hienthi',status) order by numb,id desc", array('hinhanh'), 'result', 7200);
 
 // need
 

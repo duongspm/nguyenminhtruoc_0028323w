@@ -421,7 +421,7 @@ $search = array(
 
 
 		/* Format money */
-		public function formatMoney($price=0, $unit='$', $html=false)
+		public function formatMoney($price=0, $unit='đ', $html=false)
 		{
 			$str = '';
 

@@ -92,16 +92,11 @@ require_once LIBRARIES . "lang/$lang.php";
 /* Tối ưu link */
 $requick = array(
 	/* Sản phẩm */
-	array("tbl" => "product_list", "field" => "idl", "source" => "product", "com" => "san-pham", "type" => "san-pham"),
-	array("tbl" => "product", "field" => "id", "source" => "product", "com" => "san-pham", "type" => "san-pham", "menu" => true),
-
-	array("tbl" => "news", "field" => "id", "source" => "news", "com" => "cong-trinh", "type" => "cong-trinh", "menu" => true),
-
-	array("tbl" => "news", "field" => "id", "source" => "news", "com" => "cham-soc-khach-hang", "type" => "cham-soc-khach-hang", "menu" => true),
+	array("tbl" => "product", "field" => "id", "source" => "product", "com" => "menu", "type" => "menu", "menu" => true),
+	array("tbl" => "product_list", "field" => "idl", "source" => "product", "com" => "menu", "type" => "menu"),
+	array("tbl" => "product_cat", "field" => "idc", "source" => "product", "com" => "menu", "type" => "menu"),
 
 	array("tbl" => "news", "field" => "id", "source" => "news", "com" => "tin-tuc", "type" => "tin-tuc", "menu" => true),
-
-	array("tbl" => "news", "field" => "id", "source" => "news", "com" => "dich-vu", "type" => "dich-vu", "menu" => true),
 	
 	/* Trang tĩnh */
 	array("tbl" => "static", "field" => "id", "source" => "static", "com" => "gioi-thieu", "type" => "gioi-thieu", "menu" => true),
@@ -111,8 +106,8 @@ $requick = array(
 
 	array("tbl" => "news", "field" => "id", "source" => "news", "com" => "chinh-sach", "type" => "chinh-sach", "menu" => false),
 	
-	array("tbl" => "news", "field" => "id", "source" => "news", "com" => "tieu-chi", "type" => "tieu-chi", "menu" => false),
-
+	array("tbl" => "product", "field" => "id", "source" => "product", "com" => "hinh-anh", "type" => "hinh-anh", "menu" => true),
+	
 );
 
 /* Find data */
@@ -162,37 +157,13 @@ switch ($com) {
 		$titleMain = "Tin tức";
 		break;
 
-		case 'cong-trinh':
-			$source = "news";
-			$template = isset($_GET['id']) ? "news/news_detail" : "news/news";
-			$seo->set('type', isset($_GET['id']) ? "article" : "object");
-			$type = $com;
-			$titleMain = "Công trình";
-			break;
-			
-			case 'cham-soc-khach-hang':
-				$source = "news";
-				$template = isset($_GET['id']) ? "news/news_detail" : "news/news";
-				$seo->set('type', isset($_GET['id']) ? "article" : "object");
-				$type = $com;
-				$titleMain = "Chăm sóc khách hàng";
-				break;
-			
 
-	case 'dich-vu':
-		$source = "news";
-		$template = isset($_GET['id']) ? "news/news_detail" : "news/dichvu";
-		$seo->set('type', isset($_GET['id']) ? "article" : "object");
-		$type = $com;
-		$titleMain = "Dịch vụ";
-		break;
-
-	case 'san-pham':
+	case 'menu':
 		$source = "product";
 		$template = isset($_GET['id']) ? "product/product_detail" : "product/product";
 		$seo->set('type', isset($_GET['id']) ? "article" : "object");
 		$type = $com;
-		$titleMain = sanpham;
+		$titleMain = "Menu";
 		break;
 
 	case 'tim-kiem':
@@ -210,12 +181,12 @@ switch ($com) {
 		$titleMain = null;
 		break;
 
-	case 'tieu-chi':
-		$source = "news";
-		$template = isset($_GET['id']) ? "news/news_detail" : "";
-		$seo->set('type', 'article');
+	case 'hinh-anh':
+		$source = "product";
+		$template ="album/album_detail";
+		$seo->set('type',isset($_GET['id']) ? "article" : "object");
 		$type = $com;
-		$titleMain = null;
+		$titleMain = "Hình ảnh";
 		break;
 		
 	case 'tags-san-pham':
