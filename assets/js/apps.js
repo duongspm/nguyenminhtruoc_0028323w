@@ -117,13 +117,13 @@ NN_FRAMEWORK.Slickvideo = function(){
 };
 /* Paging ajax list*/
 NN_FRAMEWORK.loadPagingList = function () {
-    loadPaging("api/product.php?perpage=8", ".paging-product-list", 0);
+    loadPaging("api/product.php?perpage=12", ".paging-product-list", 0);
     $(".title-product-list .a-title-product").click(function () {
         $(".title-product-list .a-title-product").removeClass("active");
         $(this).addClass("active");
         var _list = $(this).data("list");
         loadPaging(
-            "api/product.php?idList=" + _list + "&perpage=8",
+            "api/product.php?idList=" + _list + "&perpage=12",
             ".paging-product-list",
             0
         );

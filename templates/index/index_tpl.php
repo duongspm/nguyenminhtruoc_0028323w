@@ -52,7 +52,7 @@
                     <div>
                         <a class="text-decoration-none slider-for-img" href="<?=$v[$sluglang]?>"
                             title="<?=$v['name'.$lang]?>">
-                            <?= $func->getImage(['class' => 'lazy w-100', 'sizes' => '400x400x1', 'upload' => UPLOAD_PRODUCT_L, 'image' => $v['photo'], 'alt' => $v['name'.$lang]]) ?>
+                            <?= $func->getImage(['class' => 'lazy', 'sizes' => '370x370x1', 'upload' => UPLOAD_PRODUCT_L, 'image' => $v['photo'], 'alt' => $v['name'.$lang]]) ?>
                         </a>
                     </div>
                     <?php }?>
@@ -93,7 +93,7 @@
                     <a class="text-decoration-none slider-nav-item" href="<?=$v[$sluglang]?>"
                         title="<?=$v['name'.$lang]?>">
                         <div class="slider-nav-img">
-                            <?= $func->getImage(['class' => 'lazy w-100', 'sizes' => '228x228x1', 'upload' => UPLOAD_PRODUCT_L, 'image' => $v['photo'], 'alt' => $v['name'.$lang]]) ?>
+                            <?= $func->getImage(['class' => 'lazy', 'sizes' => '228x228x1', 'upload' => UPLOAD_PRODUCT_L, 'image' => $v['photo'], 'alt' => $v['name'.$lang]]) ?>
                         </div>
                         <div class="slider-nav-content">
                             <span class="slider-name">
@@ -112,8 +112,43 @@
         </div>
     </div>
 </div>
-
-
+<div class="menu-pro">
+    <div class="wrapper pd">
+        <div class="heading">
+            <span class="heading--white">Menu</span>
+            <h2 class="heading__title--white">
+                <?=$setting['name'.$lang]?>
+            </h2>
+        </div>
+        <div class="menu-pro-list">
+            <?php if (!empty($productnb)) { ?>
+            <?php if (!empty($productlistnb)) { ?>
+            <div class="title-product-list text-center">
+                <?php foreach ($productlistnb as $key => $vl) : ?>
+                <a class="text-decoration-none a-title-product"
+                    data-list="<?= $vl['id'] ?>"><?= $vl['name' . $lang] ?></a>
+                <?php endforeach ?>
+            </div>
+            <?php } ?>
+            <div class="paging-product-list"></div>
+            <?php } ?>
+        </div>
+    </div>
+</div>
+<div class="khonggian">
+    <div class="wrapper pd">
+        <div class="heading">
+            <span class="heading--black">không gian quán</span>
+            <h2 class="heading__title--red">
+                <?=$setting['name'.$lang]?>
+            </h2>
+        </div>
+        <div class="khonggian__list">
+            <div class="khonggian__top"></div>
+            <div class="khonggian__bottom"></div>
+        </div>
+    </div>
+</div>
 <div class="blog pd-b">
     <div class="wrapper">
         <div class="blogg">
