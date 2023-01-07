@@ -65,6 +65,7 @@
     $config['photo']['man_photo'][$nametype]['check_photo'] = array("hienthi" => "Hiển thị");
     $config['photo']['man_photo'][$nametype]['number_photo'] = 4;
     $config['photo']['man_photo'][$nametype]['images_photo'] = true;
+    $config['photo']['man_photo'][$nametype]['name_photo'] = true;
     $config['photo']['man_photo'][$nametype]['avatar_photo'] = true;
     $config['photo']['man_photo'][$nametype]['width_photo'] = 488;
     $config['photo']['man_photo'][$nametype]['height_photo'] = 408;

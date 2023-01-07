@@ -54,6 +54,7 @@
     $config['news'][$nametype]['images'] = true;
     $config['news'][$nametype]['show_images'] = true;
     $config['news'][$nametype]['desc'] = true;
+    $config['news'][$nametype]['content'] = true;
     $config['news'][$nametype]['width'] = 203;
     $config['news'][$nametype]['height'] = 260;
     $config['news'][$nametype]['thumb'] = '203x260x1';
