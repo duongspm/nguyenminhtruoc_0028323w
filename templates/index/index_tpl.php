@@ -53,7 +53,7 @@
                 <div class="slider-for">
                     <?php foreach($productbc as $v){?>
                     <div>
-                        <a class="text-decoration-none slider-for-img" href="<?=$v[$sluglang]?>"
+                        <a class="text-decoration-none slider-for-img scale-img hover_sang" href="<?=$v[$sluglang]?>"
                             title="<?=$v['name'.$lang]?>">
                             <?= $func->getImage(['class' => 'lazy', 'sizes' => '370x370x1', 'upload' => UPLOAD_PRODUCT_L, 'image' => $v['photo'], 'alt' => $v['name'.$lang]]) ?>
                         </a>
@@ -93,7 +93,7 @@
             <div class="slider-nav">
                 <?php foreach($productbc as $v){?>
                 <div>
-                    <a class="text-decoration-none slider-nav-item" href="<?=$v[$sluglang]?>"
+                    <a class="text-decoration-none  slider-nav-item" href="<?=$v[$sluglang]?>"
                         title="<?=$v['name'.$lang]?>">
                         <div class="slider-nav-img">
                             <?= $func->getImage(['class' => 'lazy', 'sizes' => '228x228x1', 'upload' => UPLOAD_PRODUCT_L, 'image' => $v['photo'], 'alt' => $v['name'.$lang]]) ?>
@@ -269,16 +269,11 @@
                 <div class="video__list">
                     <div class="video-intro">
                         <?php if(count($videonb)){?>
-                        <div class="owl-page owl-carousel owl-theme" data-xsm-items="1:30" data-sm-items="1:30"
-                            data-md-items="1:30" data-lg-items="1:30" data-xlg-items="1:30" data-rewind="1"
-                            data-autoplay="1" data-loop="0" data-lazyload="0" data-mousedrag="1" data-touchdrag="1"
-                            data-smartspeed="500" data-autoplayspeed="3500" data-dots="0" data-nav="0"
-                            data-navtext="<svg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-arrow-narrow-left' width='50' height='37' viewBox='0 0 24 24' stroke-width='1' stroke='#ffffff' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><line x1='5' y1='12' x2='19' y2='12' /><line x1='5' y1='12' x2='9' y2='16' /><line x1='5' y1='12' x2='9' y2='8' /></svg>|<svg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-arrow-narrow-right' width='50' height='37' viewBox='0 0 24 24' stroke-width='1' stroke='#ffffff' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><line x1='5' y1='12' x2='19' y2='12' /><line x1='15' y1='16' x2='19' y2='12' /><line x1='15' y1='8' x2='19' y2='12' /></svg>"
-                            data-navcontainer=".control-newsnb">
+                        <div class="slickvideoclip">
                             <?php foreach($videonb as $v){?>
                             <div class="video" data-fancybox="video" data-src="<?=$v['link_video']?>">
                                 <div class="video-image scale-img">
-                                    <?=$func->getImage(['class' => '', 'size-error' => '480x360x1', 'url' => 'https://img.youtube.com/vi/'.$func->getYoutube($v['link_video']).'/0.jpg', 'alt' => $v['name'.$lang]])?>
+                                    <?=$func->getImage(['class' => 'w-100', 'size-error' => '480x360x1', 'url' => 'https://img.youtube.com/vi/'.$func->getYoutube($v['link_video']).'/0.jpg', 'alt' => $v['name'.$lang]])?>
                                 </div>
                             </div>
                             <?php }?>
@@ -290,6 +285,7 @@
         </div>
     </div>
 </div>
+
 <div class="blog pd">
     <div class="wrapper">
         <div class="blogg">
@@ -358,13 +354,48 @@
                     <form class="validation-newsletter" novalidate method="post" action=""
                         enctype="multipart/form-data">
                         <div class="newsletter-input">
-                            <input type="email" class="form-control text-sm" id="email-newsletter"
-                                name="dataNewsletter[email]" placeholder="<?= nhapemail ?>" required />
-                            <div class="invalid-feedback"><?= vuilongnhapdiachiemail ?></div>
+                            <div class="icon__input">
+                                <img src="assets/images/icon-lienhe.png" alt="">
+                            </div>
+                            <input type="text" class="form-controld text-sm" id="fullname-newsletter"
+                                name="dataNewsletter[fullname]" placeholder="Họ Tên:" required />
+                            <div class="invalid-tooltip">Vui lòng nhập họ tên</div>
+                        </div>
+                        <div class="newsletter-input">
+                            <div class="icon__input">
+                                <img src="assets/images/icon-lienhe2.png" alt="">
+                            </div>
+                            <input type="number" class="form-controld text-sm" id="phone-newsletter"
+                                name="dataNewsletter[phone]" placeholder="Số Điện Thoại:" required />
+                            <div class="invalid-tooltip">Vui lòng nhập số điện thoại</div>
+                        </div>
+                        <div class="newsletter-input">
+                            <div class="icon__input">
+                                <img src="assets/images/icon-linehe4.png" alt="">
+                            </div>
+                            <input type="datetime-local" class="form-controld text-sm" id="datetime-newsletter"
+                                name="dataNewsletter[datetime]" placeholder="Ngày đặt:" required />
+                            <div class="invalid-tooltip">Vui lòng chọn ngày đặt bàn</div>
+                        </div>
+
+                        <div class="newsletter-input">
+                            <div class="icon__input">
+                                <img src="assets/images/iconk-linehe3.png" alt="">
+                            </div>
+                            <input type="email" class="form-controld text-sm" id="email-newsletter"
+                                name="dataNewsletter[email]" placeholder="Email:" required />
+                            <div class="invalid-tooltip"><?= vuilongnhapdiachiemail ?></div>
+                        </div>
+                        <div class="newsletter-input">
+                            <div class="icon__input">
+                                <img src="assets/images/icon-linehe4.png" alt="">
+                            </div>
+                            <textarea type="text" class="form-controldd text-sm" id="content-newsletter"
+                                name="dataNewsletter[content]" placeholder="Nhập Nội Dung:" required></textarea>
+                            <div class="invalid-tooltip">Vui lòng nhập nội dung</div>
                         </div>
                         <div class="newsletter-button">
-                            <input type="submit" class="btn btn-sm btn-danger w-100" name="submit-newsletter"
-                                value="<?= gui ?>" disabled>
+                            <input type="submit" class="btnd" name="submit-newsletter" value="GỬI NGAY" disabled>
                             <input type="hidden" class="btn btn-sm btn-danger w-100"
                                 name="recaptcha_response_newsletter" id="recaptchaResponseNewsletter">
                         </div>

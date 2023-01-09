@@ -5,7 +5,7 @@
                 data-options="zoomMode: off; hint: off; rightClick: true; selectorTrigger: hover; expandCaption: false; history: false;"
                 href="<?=ASSET.WATERMARK?>/product/540x540x1/<?=UPLOAD_PRODUCT_L.$rowDetail['photo']?>"
                 title="<?=$rowDetail['name'.$lang]?>">
-                <?=$func->getImage(['isLazy' => false, 'sizes' => '540x540x1', 'isWatermark' => true, 'prefix' => 'product', 'upload' => UPLOAD_PRODUCT_L, 'image' => $rowDetail['photo'], 'alt' => $rowDetail['name'.$lang]])?>
+                <?=$func->getImage(['isLazy' => false, 'sizes' => '540x540x1', 'isWatermark' => false, 'prefix' => 'product', 'upload' => UPLOAD_PRODUCT_L, 'image' => $rowDetail['photo'], 'alt' => $rowDetail['name'.$lang]])?>
             </a>
             <?php if($rowDetailPhoto) { if(count($rowDetailPhoto) > 0) { ?>
             <div class="gallery-thumb-pro">
@@ -17,7 +17,7 @@
                         <a class="thumb-pro-detail" data-zoom-id="Zoom-1"
                             href="<?=ASSET.WATERMARK?>/product/540x540x1/<?=UPLOAD_PRODUCT_L.$rowDetail['photo']?>"
                             title="<?=$rowDetail['name'.$lang]?>">
-                            <?=$func->getImage(['isLazy' => false, 'sizes' => '540x540x1', 'isWatermark' => true, 'prefix' => 'product', 'upload' => UPLOAD_PRODUCT_L, 'image' => $rowDetail['photo'], 'alt' => $rowDetail['name'.$lang]])?>
+                            <?=$func->getImage(['isLazy' => false, 'sizes' => '540x540x1', 'isWatermark' => false, 'prefix' => 'product', 'upload' => UPLOAD_PRODUCT_L, 'image' => $rowDetail['photo'], 'alt' => $rowDetail['name'.$lang]])?>
                         </a>
                     </div>
                     <?php foreach($rowDetailPhoto as $v) { ?>
@@ -25,7 +25,7 @@
                         <a class="thumb-pro-detail" data-zoom-id="Zoom-1"
                             href="<?=ASSET.WATERMARK?>/product/540x540x1/<?=UPLOAD_PRODUCT_L.$v['photo']?>"
                             title="<?=$rowDetail['name'.$lang]?>">
-                            <?=$func->getImage(['isLazy' => false, 'sizes' => '540x540x1', 'isWatermark' => true, 'prefix' => 'product', 'upload' => UPLOAD_PRODUCT_L, 'image' => $v['photo'], 'alt' => $rowDetail['name'.$lang]])?>
+                            <?=$func->getImage(['isLazy' => false, 'sizes' => '540x540x1', 'isWatermark' => false, 'prefix' => 'product', 'upload' => UPLOAD_PRODUCT_L, 'image' => $v['photo'], 'alt' => $rowDetail['name'.$lang]])?>
                         </a>
                     </div>
                     <?php } ?>
@@ -46,18 +46,47 @@
                 ?>
             </div>
             <ul class="attr-pro-detail">
-
+                <li class="w-clear">
+                    <label class="attr-label-pro-detail d-block"><?=soluong?>:</label>
+                    <div class="attr-content-pro-detail d-block">
+                        <div class="quantity-pro-detail">
+                            <span class="quantity-minus-pro-detail">-</span>
+                            <input type="number" class="qty-pro" min="1" value="1" readonly />
+                            <span class="quantity-plus-pro-detail">+</span>
+                        </div>
+                    </div>
+                </li>
                 <li class="w-clear">
                     <label class="attr-label-pro-detail"><?=luotxem?>:</label>
                     <div class="attr-content-pro-detail"><?=$rowDetail['view']?></div>
                 </li>
             </ul>
-
+            <li class="w-clear">
+                <label class="attr-label-pro-detail"><?=gia?>:</label>
+                <div class="attr-content-pro-detail">
+                    <?php if($rowDetail['sale_price']) { ?>
+                    <span class="price-new-pro-detail"><?=$func->formatMoney($rowDetail['sale_price'])?></span>
+                    <span class="price-old-pro-detail"><?=$func->formatMoney($rowDetail['regular_price'])?></span>
+                    <?php } else { ?>
+                    <span
+                        class="price-new-pro-detail"><?=($rowDetail['regular_price']) ? $func->formatMoney($rowDetail['regular_price']) : lienhe?></span>
+                    <?php } ?>
+                </div>
+            </li>
             <br>
             <div class="">
                 <?=(!empty($rowDetail['desc'.$lang])) ? nl2br(htmlspecialchars_decode($rowDetail['desc'.$lang])) : ''?>
             </div>
-
+            <div class="cart-pro-detail">
+                <a class="btn btn-success addcart rounded-0 mr-2" data-id="<?=$rowDetail['id']?>" data-action="addnow">
+                    <i class="fas fa-shopping-bag mr-1"></i>
+                    <span>Thêm vào giỏ hàng</span>
+                </a>
+                <a class="btn btn-dark addcart rounded-0" data-id="<?=$rowDetail['id']?>" data-action="buynow">
+                    <i class="fas fa-shopping-bag mr-1"></i>
+                    <span>Mua ngay</span>
+                </a>
+            </div>
         </div>
     </div>
 
@@ -97,15 +126,20 @@
 <div class="content-main w-clear">
     <div class="productlistnb__list">
         <?php if(!empty($product)) { foreach($product as $k => $v) { ?>
-        <div class="productt">
+        <div class="productt productdetail">
             <a class="product__item text-decoration-none" href="<?=$v[$sluglang]?>" title="<?=$v['name'.$lang]?>">
                 <div class="product__img">
                     <div class="hover_sang scale-img">
-                        <?=$func->getImage(['sizes' => '280x220x1', 'isWatermark' => true, 'prefix' => 'product', 'upload' => UPLOAD_PRODUCT_L, 'image' => $v['photo'], 'alt' => $v['name'.$lang]])?>
+                        <?=$func->getImage(['sizes' => '286x283x1', 'isWatermark' => false, 'prefix' => 'product', 'upload' => UPLOAD_PRODUCT_L, 'image' => $v['photo'], 'alt' => $v['name'.$lang]])?>
                     </div>
                 </div>
-                <div class="product-price">
-                    <h3 class="name-product cut_string1"><?= $v['name' . $lang] ?></h3>
+                <div class="product__content">
+                    <h3 class="product__name"><?= $v['name' . $lang] ?></h3>
+                    <p class="product__price">
+                        <span class="price-price">Giá: </span>
+                        <span class="price-new">
+                            <?= ($v['regular_price']) ? $func->formatMoney($v['regular_price']) : "Liên hệ" ?></span>
+                    </p>
                 </div>
             </a>
         </div>

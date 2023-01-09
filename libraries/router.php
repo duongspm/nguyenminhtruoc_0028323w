@@ -207,7 +207,13 @@ switch ($com) {
 		$titleMain = null;
 		break;
 
-
+	case 'gio-hang':
+		$source = "order";
+		$template = 'order/order';
+		$titleMain = giohang;
+		$seo->set('type','object');
+		break;
+		
 	case 'account':
 		$source = "user";
 		break;

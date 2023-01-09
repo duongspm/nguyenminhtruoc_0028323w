@@ -90,7 +90,7 @@ $config['places']['check_ward'] = array("hienthi" => "Hiển thị");
 $config['places']['placesship'] = false;
 
 /* Quản lý giỏ hàng */
-$config['order']['active'] = false;
+$config['order']['active'] = true;
 $config['order']['search'] = false;
 $config['order']['excel'] = false;
 $config['order']['word'] = false;

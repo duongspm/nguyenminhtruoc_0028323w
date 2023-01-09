@@ -21,7 +21,7 @@
         </div>
         <?php
         include TEMPLATE . LAYOUT . "footer.php";
-        // include TEMPLATE . LAYOUT . "modal.php";
+        include TEMPLATE . LAYOUT . "modal.php";
         include TEMPLATE . LAYOUT . "js.php";
         // if($deviceType=='mobile') include TEMPLATE.LAYOUT."phone.php";
         ?>

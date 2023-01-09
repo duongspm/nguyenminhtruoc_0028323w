@@ -11,7 +11,7 @@
 		{
 			$where = "";
 			$where = "type = ? and (name$lang LIKE ? or slugvi LIKE ? or slugen LIKE ?) and find_in_set('hienthi',status)";
-			$params = array("san-pham","%$tukhoa%","%$tukhoa%","%$tukhoa%");
+			$params = array("menu","%$tukhoa%","%$tukhoa%","%$tukhoa%");
 
 			$curPage = $getPage;
 			$perPage = 20;

@@ -3,15 +3,20 @@
     <div class="">
         <div class="productlistnb__list">
             <?php if(!empty($product)) { foreach($product as $k => $v) { ?>
-            <div class="productt">
+            <div class="productt productdetail">
                 <a class="product__item text-decoration-none" href="<?=$v[$sluglang]?>" title="<?=$v['name'.$lang]?>">
                     <div class="product__img">
                         <div class="hover_sang scale-img">
-                            <?=$func->getImage(['sizes' => '280x220x1', 'isWatermark' => true, 'prefix' => 'product', 'upload' => UPLOAD_PRODUCT_L, 'image' => $v['photo'], 'alt' => $v['name'.$lang]])?>
+                            <?=$func->getImage(['sizes' => '286x283x1', 'isWatermark' => false, 'prefix' => 'product', 'upload' => UPLOAD_PRODUCT_L, 'image' => $v['photo'], 'alt' => $v['name'.$lang]])?>
                         </div>
                     </div>
-                    <div class="product-price">
-                        <h3 class="name-product cut_string1"><?= $v['name' . $lang] ?></h3>
+                    <div class="product__content">
+                        <h3 class="product__name"><?= $v['name' . $lang] ?></h3>
+                        <p class="product__price">
+                            <span class="price-price">Giá: </span>
+                            <span class="price-new">
+                                <?= ($v['regular_price']) ? $func->formatMoney($v['regular_price']) : "Liên hệ" ?></span>
+                        </p>
                     </div>
                 </a>
             </div>

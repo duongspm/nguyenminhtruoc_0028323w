@@ -585,14 +585,13 @@ NN_FRAMEWORK.countNumber = () => {
     });
    
 }
-NN_FRAMEWORK.SlickBlog = () => {
-    $('.slickblog').slick({
-        autoplay: true,
+NN_FRAMEWORK.SlickVideoClip = () => {
+    $('.slickvideoclip').slick({
+        autoplay: false,
         autoplaySpeed: 3000,
         speed: 1000,
-        slidesToShow: 3,
+        slidesToShow: 1,
         slidesToScroll: 1,
-        vertical: true,
         responsive: [
             {
                 breakpoint: 823,
@@ -884,7 +883,7 @@ $(document).ready(function(){
     NN_FRAMEWORK.OwlPage();
     NN_FRAMEWORK.Pagings();
     NN_FRAMEWORK.Slickvideo();
-    // NN_FRAMEWORK.Cart();
+    NN_FRAMEWORK.Cart();
     NN_FRAMEWORK.Videos();
     NN_FRAMEWORK.Photobox();
     NN_FRAMEWORK.Comment();
@@ -894,9 +893,9 @@ $(document).ready(function(){
     // NN_FRAMEWORK.DatePicker();
     NN_FRAMEWORK.peShiner();
     NN_FRAMEWORK.peShiner2();
-    NN_FRAMEWORK.SlickBlog();
-    NN_FRAMEWORK.FlipsterVideo();
-    NN_FRAMEWORK.flip();
+    NN_FRAMEWORK.SlickVideoClip();
+    // NN_FRAMEWORK.FlipsterVideo();
+    // NN_FRAMEWORK.flip();
     NN_FRAMEWORK.loadNameInputFile();
     NN_FRAMEWORK.loadPagingList();
     NN_FRAMEWORK.loadPagingListService();

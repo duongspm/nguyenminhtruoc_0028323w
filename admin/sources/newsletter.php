@@ -245,6 +245,8 @@
 		if($id)
 		{
 			$data['date_updated'] = time();
+			$data['datetime'] = time();
+
 			
 			$d->where('id', $id);
 			$d->where('type', $type);
